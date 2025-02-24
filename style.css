@@ -1,26 +1,51 @@
-html{
-    min-height: 100%;
-}
-
-body {
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    justify-self: center;
-    align-self: center;
-    min-height: 100%;
+    align-items: center; /* Centers content horizontally */
+    justify-content: center; /* Centers content vertically */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
 }
 
-svg{
+svg {
     background-color: whitesmoke;
 }
 
-#canvas{
-    min-height: 600px;
-    min-width: 1200px;
+/* Ensure the heat map container is properly sized */
+#canvas {
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
 }
 
-#tooltip{
+/* Tooltip Styling */
+#tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
     visibility: hidden;
-    height: auto;
     width: auto;
+    height: auto;
+    pointer-events: none; /* Prevents interfering with mouse events */
+    transition: visibility 0.2s, opacity 0.2s;
+    opacity: 0;
+}
+
+/* Ensure tooltip fades in */
+.cell:hover + #tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Improve text contrast */
+h1, h4 {
+    color: #333;
+    text-align: center;
 }
